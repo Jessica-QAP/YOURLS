@@ -72,7 +72,10 @@ function yourls_add_new_link( $url, $keyword = '', $title = '', $row_id = 1 ) {
         return yourls_apply_filter( 'add_new_link_fail_noloop', $return, $url, $keyword, $title );
     }
 
-    yourls_do_action( 'pre_add_new_link', $url, $keyword, $title );
+    $pre = yourls_apply_filter( 'pre_add_new_link', false, $url, $keyword, $title );
+    if ( !is_null($pre) ) {
+        return $pre;
+    }
 
     // Check if URL was already stored and we don't accept duplicates
     if ( !yourls_allow_duplicate_longurls() && ($url_exists = yourls_long_url_exists( $url )) ) {
