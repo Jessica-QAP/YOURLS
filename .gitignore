@@ -49,3 +49,8 @@ Desktop.ini
 # NetBeans files
 /nbproject/
 .idea
+
+############
+## Custom
+.vscode
+includes/vendor/*

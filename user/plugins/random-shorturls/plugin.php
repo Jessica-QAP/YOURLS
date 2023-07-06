@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Random ShortURLs
+Plugin Name: Random ShortURLs YOURLS Plugin
 Plugin URI: https://yourls.org/
 Description: Assign random keywords to shorturls, like bitly (sho.rt/hJudjK)
 Version: 1.2
