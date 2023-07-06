@@ -53,4 +53,4 @@ Desktop.ini
 ############
 ## Custom
 .vscode
-includes/vendor/*
+includes/vendor/
