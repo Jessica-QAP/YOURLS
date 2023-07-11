@@ -54,3 +54,5 @@ Desktop.ini
 ## Custom
 .vscode
 includes/vendor/
+nginx-selfsigned.crt
+nginx-selfsigned.key
