@@ -7,22 +7,8 @@
 *.conf
 [Rr]obots.txt
 
-# Ignore everything in user/
-user/*
-# ... except config sample
-!user/config-sample.php
-# ... core plugins
-!user/plugins/hyphens-in-urls/
-!user/plugins/random-bg/
-!user/plugins/random-shorturls/
-!user/plugins/sample-page/
-!user/plugins/sample-plugin/
-!user/plugins/sample-toolbar/
-# ... example pages
-!user/pages/examplepage.php
-# ... and index.html files
-!user/index.html
-!user/**/index.html
+# Ignore config page/
+user/config.php
 
 ############
 ## Tests
@@ -51,8 +37,15 @@ Desktop.ini
 .idea
 
 ############
-## Custom
-.vscode
-includes/vendor/
+## Secrets
 nginx-selfsigned.crt
 nginx-selfsigned.key
+client_secrets.json
+
+############
+## Vendors
+includes/vendor/
+
+############
+## Custom
+.vscode
