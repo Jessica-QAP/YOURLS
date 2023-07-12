@@ -15,7 +15,7 @@
 
 1. Install docker and docker-compose
 2. Clone the repository locally
-3. Download the nginx-selfsigned.crt, nginx-selfsigned.key and user/config.php file
+3. Download the nginx-selfsigned.crt, nginx-selfsigned.key, client_secrets.json and user/config.php file
 4. cd to repo and run "sudo docker-compose up"
 5. Open server in browser with /admin path
 
