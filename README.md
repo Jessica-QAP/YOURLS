@@ -12,12 +12,7 @@
 **YOURLS** is a set of PHP scripts that will allow you to run <strong>Y</strong>our <strong>O</strong>wn <strong>URL</strong> <strong>S</strong>hortener, on **your** server. You'll have full control over your data, detailed stats, analytics, plugins, and more. It's free and open-source.
 
 ## Quick Start
-
-1. Install docker and docker-compose
-2. Clone the repository locally
-3. Download the nginx-selfsigned.crt, nginx-selfsigned.key, client_secrets.json and user/config.php file
-4. cd to repo and run "sudo docker-compose up"
-5. Open server in browser with /admin path
+To be filled in...
 
 ## License
 
