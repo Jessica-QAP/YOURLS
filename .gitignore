@@ -1,0 +1,20 @@
+# Server configuration
+.htaccess
+yourls.conf
+.DS_Store
+
+# Config
+config.php
+
+# Environment variables
+.env.yourls
+.env.mysql
+
+# SSL certificates
+nginx-selfsigned.crt
+nginx-selfsigned.key
+
+# Plugins
+plugins/beanworks-api-request/*
+plugins/google-auth/client_secrets.json
+
