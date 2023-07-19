@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: yourls
+  name: yourls
+spec:
+  ports:
+    - name: "80"
+      port: 80
+      targetPort: 80
+  selector:
+    io.kompose.service: yourls
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: yourls
+  name: yourls
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: yourls
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: yourls
+    spec:
+      containers:
+        - env:
+            - name: YOURLS_DB_PASS
+              value: password
+            - name: YOURLS_PASS
+              value: password
+            - name: YOURLS_SITE
+              value: http://localhost
+            - name: YOURLS_USER
+              value: username
+          image: yourls
+          name: yourls
+          ports:
+            - containerPort: 80
+          resources: {}
+          volumeMounts:
+          - name: yourls-config-php
+            mountPath: /var/www/html/user/config.php
+            subPath: config.php
+          - name: yourls-index-php
+            mountPath: /var/www/html/index.php
+            subPath: index.php
+          - name: beanworks-api-request
+            mountPath: /var/www/html/user/plugins/beanworks-api-request/plugin.php
+            subPath: plugin.php
+          - name: domain-limiter
+            mountPath: /var/www/html/user/plugins/domain-limiter/plugin.php
+            subPath: plugin.php
+          - name: fallback-url
+            mountPath: /var/www/html/user/plugins/fallback-url/plugin.php
+            subPath: plugin.php
+      restartPolicy: Always
+      volumes:
+        - name: yourls-config-php
+          configMap:
+            name: yourls
+            items:
+              - key: config.php
+                path: config.php
+        - name: yourls-index-php
+          configMap:
+            name: yourls
+            items:
+              - key: index.php
+                path: index.php
+        - name: beanworks-api-request
+          configMap:
+            name: beanworks-api-request
+            items:
+              - key: plugin.php
+                path: plugin.php
+        - name: domain-limiter
+          configMap:
+            name: domain-limiter
+            items:
+              - key: plugin.php
+                path: plugin.php
+        - name: fallback-url
+          configMap:
+            name: fallback-url
+            items:
+              - key: plugin.php
+                path: plugin.php
+status: {}
