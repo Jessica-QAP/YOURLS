@@ -38,11 +38,11 @@ spec:
             - name: MYSQL_DATABASE
               value: yourls
             - name: MYSQL_PASSWORD
-              value: quadient@4
+              value: password
             - name: MYSQL_ROOT_PASSWORD
-              value: quadient@4
+              value: password
             - name: MYSQL_USER
-              value: admin
+              value: username
           image: mysql
           name: mysql
           ports:
