@@ -17,30 +17,35 @@ Both the master and docker branches are missing the following files
 * nginx-selfsigned.key
 * yourls.conf
 
-The docker branch is also missing
-* .env.yourls
-* .env.mysql
-
 To run Kubernetes version locally
 1. Install minikube, kubectl and Docker Desktop
 2. Clone the repo, download the missing files and open the master branch
 3. Change usernames and passwords in mysql.yaml, yourls.yaml and config.php to desired values
 4. cd to root of repo the following commands
-    $ kubectl create configmap yourls --from-file=config.php --from-file=index.php
-    $ kubectl create configmap nginx --from-file=nginx-selfsigned.crt --from-file=nginx-selfsigned.key --from-file=yourls.conf
-    $ kubectl apply -f .
-5. Open one terminal and run
-    $ sudo kubectl port-forward service/nginx 443:443
-6. Open another terminal and run
-    $ sudo kubectl port-forward service/yourls 80:80
-7. Leave them both running and go to http://localhost/admin/index.php to “install” yourls
+```
+kubectl create configmap yourls --from-file=config.php --from-file=index.php
+kubectl create configmap nginx --from-file=nginx-selfsigned.crt --from-file=nginx-selfsigned.key --from-file=yourls.conf
+kubectl apply -f .
+```
+
+6. Open one terminal and run
+```
+sudo kubectl port-forward service/nginx 443:443
+```
+8. Open another terminal and run
+```
+sudo kubectl port-forward service/yourls 80:80
+```
+10. Leave them both running and go to http://localhost/admin/index.php to “install” yourls
 
 To run Docker Compose version locally
 1. Install Docker Desktop
 2. Clone repo, download the missing files and open the docker branch
 3. Change usernames and passwords in .env.yourls, .env.mysql and config.php to desired values
 4. cd to root of repo and run
-    $ docker-compose up
+```
+docker-compose up
+```
 5. Go to http://localhost/admin/index.php to “install” yourls
 
 ## License
