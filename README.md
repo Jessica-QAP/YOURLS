@@ -17,10 +17,6 @@ Both the master and docker branches are missing the following files
 * nginx-selfsigned.key
 * yourls.conf
 
-The docker branch is also missing
-* .env.yourls
-* .env.mysql
-
 To run Kubernetes version locally
 1. Install minikube, kubectl and Docker Desktop
 2. Clone the repo, download the missing files and open the master branch
